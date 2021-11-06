@@ -3,9 +3,9 @@ import Unity, { UnityContext } from "react-unity-webgl";
 
 const unityContext = new UnityContext({
   loaderUrl: "build/build.loader.js",
-  dataUrl: "build/build.data.br",
-  frameworkUrl: "build/build.framework.js.br",
-  codeUrl: "build/build.wasm.br",
+  dataUrl: "build/build.data",
+  frameworkUrl: "build/build.framework.js",
+  codeUrl: "build/build.wasm",
 });
 
 function App() {
@@ -20,7 +20,11 @@ function App() {
   return (
     <div>
       <p>Loading {progression * 100} percent...</p>
-      <Unity unityContext={unityContext} />
+      <Unity
+        unityContext={unityContext}
+        matchWebGLToCanvasSize={false}
+        style={{ height: "100vh" }}
+      />
     </div>
   );
 }
