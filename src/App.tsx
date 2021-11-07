@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
+import Header from './Header';
 
 const unityContext = new UnityContext({
   loaderUrl: "build/build.loader.js",
@@ -19,11 +20,10 @@ function App() {
 
   return (
     <div>
-      <p>Loading {progression * 100} percent...</p>
+      <Header progress = {progression}/>
       <Unity
         unityContext={unityContext}
-        matchWebGLToCanvasSize={false}
-        style={{ height: "100vh" }}
+        style={{ height: "90vh"}}
       />
     </div>
   );
